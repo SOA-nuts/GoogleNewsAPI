@@ -1,39 +1,24 @@
-require 'http'
+# frozen_string_literal: true
+
+require 'news-api'
 require 'yaml'
 config = YAML.safe_load(File.read('../config/secrets.yml'))
-# search for specific topic e.g: business, BBC ...
-def gn_api_topic(topic)
-    "https://newsapi.org/v2/everything?q=#{topic}&from=2021-10-1&to=2021-10-15"
+@newsapi = News.new(config['GOOGLENEWS_TOKEN'])
+
+def gn_api_topic(topic, result_num)
+  @newsapi.get_top_headlines(q: topic,
+                             category: topic,
+                             from: '2021-10-01',
+                             to: '2021-10-12',
+                             language: 'en',
+                             sortBy: 'relevancy',
+                             pageSize: result_num)
 end
-def call_gn_url(config, url)
-    pageSize = 10;
-    url = url + "&pageSize=#{pageSize}";
-    HTTP.headers(
-    'x-api-key' => config['GOOGLENEWS_TOKEN'],
-    ).get(url)
-end
 
-gn_response = {}
-gn_results = {}
-articles = []
+# GOOD project request
+all_articles = gn_api_topic('business', 15)
 
-#try some business request
-project_url = gn_api_topic('business')
-gn_response[project_url] = call_gn_url(config, project_url)
-project = gn_response[project_url].parse
+# BAD project request- leave the topic blank
+gn_api_topic('', 15)
 
-
-project['articles'].each do |article|
-    articles << article
-end
-gn_results['articles'] = project['articles']
-File.write('../spec/fixtures/business_results.yml', gn_results.to_yaml)
-
-#test
-#puts YAML.safe_load(File.read('../spec/fixtures/business_results.yml'))['articles'][0]['url']
-
-## BAD project request- leave the topic blank
-# bad_project_url = gn_api_topic('')
-# gn_results[bad_project_url] = call_gn_url(config, bad_project_url)
-# gn_results[bad_project_url].parse
-
+File.write('../spec/fixtures/business_results.yml', all_articles.to_yaml)

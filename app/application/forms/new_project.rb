@@ -14,13 +14,9 @@ module PortfolioAdvisor
       end
 
       rule(:company_name) do
-        if check_valid(value)
+        if COMPANY_LIST[0][value.downcase].nil?
           key.failure('is a not define company.')
         end
-      end
-
-      def check_valid(company)
-        COMPANY_LIST[0][company.downcase].nil?
       end
     end
   end

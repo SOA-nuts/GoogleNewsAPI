@@ -58,10 +58,9 @@ module PortfolioAdvisor
           call_api('get', ['history',
                            req.company])
         end
-        def get_result_target(req)
-            call_api('get', ['target',
-                             req.company_name])
-          end
+        def get_result_target(company_name)
+            call_api('get', ['target', company_name])
+        end
   
 
         private

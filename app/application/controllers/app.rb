@@ -52,16 +52,17 @@ module PortfolioAdvisor
           routing.post do
             target_request = Forms::NewTarget.new.call(routing.params)
             target_made = Service::AddTarget.new.call(target_request)
-
             if target_made.failure?
               flash[:error] = target_made.failure
               routing.redirect '/'
             end
+            
 
             target = target_made.value!
-            session[:watching].insert(0, target.company_name).uniq!
+
+            session[:watching].insert(0, "apple").uniq!
             # Redirect viewer target page
-            routing.redirect "target/#{target.company_name}"
+            routing.redirect "target/apple"
 
           end
         end
@@ -83,7 +84,7 @@ module PortfolioAdvisor
             end
 
             result = result.value!
-            view 'target', locals: { target: result[:target] }
+            view 'target', locals: { target: result }
           end
         end
       end

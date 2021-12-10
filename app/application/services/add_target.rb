@@ -33,11 +33,13 @@ module PortfolioAdvisor
       end
 
       def reify_target(target_json)
+        puts Representer::Target.new(target_json)
         Representer::Target.new(OpenStruct.new)
           .from_json(target_json)
-          .then { |target| Success(target) }
+          .then { |target| 
+            Success(target) }
       rescue StandardError
-        Failure('Error in the target -- please try again')
+        Failure('Error in add target -- please try again')
       end
     end
   end

@@ -22,16 +22,17 @@ describe 'Unit test of Portfolio Advisor API gateway' do
       .add_target(TOPIC)
 
     # WHEN we request a list of targets
-    list = [TOPIC.join('/')]
+    list = [TOPIC]
     res = PortfolioAdvisor::Gateway::Api.new(PortfolioAdvisor::App.config)
       .target_list(list)
 
     # THEN we should see a single project in the list
     _(res.success?).must_equal true
     data = res.parse
-    _(data.keys).must_include 'target'
-    _(data['target'].count).must_equal 1
-    _(data['target'].first.keys.count).must_be :>=, 2
+    _(data.keys).must_include 'targets'
+    _(data['targets'].count).must_equal 1
+    puts data['targets'].first.keys.count
+    _(data['targets'].first.keys.count).must_be :>=, 2
   end
 
   #it 'must return a project appraisal' do

@@ -8,12 +8,11 @@ module PortfolioAdvisor
     class ListTargets
       include Dry::Transaction
 
-      step :get_api_list
-      step :reify_list
-
+      step :get_target_list
+      step :reify_target_list
       private
 
-      def get_api_list(targets_list)
+      def get_target_list(targets_list)
         Gateway::Api.new(PortfolioAdvisor::App.config)
           .target_list(targets_list)
           .then do |result|
@@ -23,7 +22,7 @@ module PortfolioAdvisor
         Failure(targets_list)
       end
 
-      def reify_list(targets_json)
+      def reify_target_list(targets_json)
         Representer::TargetsList.new(OpenStruct.new)
           .from_json(targets_json)
           .then { |targets| Success(targets) }

@@ -34,7 +34,7 @@ module PortfolioAdvisor
           flash[:error] = result.failure
           viewable_targets = []
         else
-          targets = result.value!
+          targets = result.value!.targets
           if targets.none?
             flash.now[:notice] = 'Add a company to get started'
           end
@@ -52,13 +52,14 @@ module PortfolioAdvisor
           routing.post do
             target_request = Forms::NewTarget.new.call(routing.params)
             target_made = Service::AddTarget.new.call(target_request)
-
             if target_made.failure?
               flash[:error] = target_made.failure
               routing.redirect '/'
             end
+            
 
             target = target_made.value!
+
             session[:watching].insert(0, target.company_name).uniq!
             # Redirect viewer target page
             routing.redirect "target/#{target.company_name}"
@@ -83,7 +84,7 @@ module PortfolioAdvisor
             end
 
             result = result.value!
-            view 'target', locals: { target: result[:target] }
+            view 'target', locals: { target: result }
           end
         end
       end
@@ -111,9 +112,9 @@ module PortfolioAdvisor
               flash[:error] = result.failure
               routing.redirect '/'
             end
-
+            
             result = result.value!
-            viewable_histories = Views::HistoriesList.new(result[:history], company)
+            viewable_histories = Views::HistoriesList.new(result[:histories], company)
             view 'history', locals: { histories: viewable_histories }
           end
         end

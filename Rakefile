@@ -25,7 +25,7 @@ end
 
 desc 'Keep restarting web app upon changes'
 task :rerack do
-  sh "rerun -c rackup --ignore 'coverage/*'"
+  sh "rerun -c rackup -p 9292 --ignore 'coverage/*'"
 end
 
 namespace :db do
@@ -65,6 +65,16 @@ namespace :db do
 
     FileUtils.rm(PortfolioAdvisor::App.config.DB_FILENAME)
     puts "Deleted #{PortfolioAdvisor::App.config.DB_FILENAME}"
+  end
+end
+
+namespace :run do
+  task :dev do
+    sh 'rerun -c "rackup -p 9292"'
+  end
+
+  task :test do
+    sh 'RACK_ENV=test rackup -p 9000'
   end
 end
 

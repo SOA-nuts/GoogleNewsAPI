@@ -1,19 +1,34 @@
 # frozen_string_literal: true
 
-require 'dry/monads'
+require 'dry/transaction'
 
 module PortfolioAdvisor
   module Service
-    # Retrieves array of all listed project entities
+    # Retrieves array of all listed target entities
     class ListTargets
-      include Dry::Monads::Result::Mixin
+      include Dry::Transaction
 
-      def call(targets_list)
-        targets = Repository::For.klass(Entity::Target).find_companys(targets_list)
+      step :get_api_list
+      step :reify_list
 
-        Success(targets)
+      private
+
+      def get_api_list(targets_list)
+        Gateway::Api.new(PortfolioAdvisor::App.config)
+          .target_list(targets_list)
+          .then do |result|
+            result.success? ? Success(result.payload) : Failure(result.message)
+          end
       rescue StandardError
-        Failure('Could not access database')
+        Failure(targets_list)
+      end
+
+      def reify_list(targets_json)
+        Representer::TargetsList.new(OpenStruct.new)
+          .from_json(targets_json)
+          .then { |targets| Success(targets) }
+      rescue StandardError
+        Failure('Could not parse response from API')
       end
     end
   end

@@ -3,30 +3,31 @@
 require 'dry/transaction'
 
 module PortfolioAdvisor
-    module Service
-        # Analyzes results to a target
-        class ResultTarget
-            include Dry::Transaction
+  module Service
+    # Analyzes results of a target
+    class ResultTarget
+      include Dry::Transaction
 
-            step :ensure_watched_target
-            step :retrieve_remote_target
+      step :validate_result_target
+      step :reify_result_target
+     
+      private
 
-            private
-
-            def ensure_watched_target(input)
-                if input[:watched_list].include? input[:requested]
-                    Success(input)
-                else
-                    Failure('Please first request this target to be added to your list')
-                end
-            end
-
-            def retrieve_remote_target(input)
-                input[:target] = Repository::For.klass(Entity::Target).find_company(input[:requested])
-                Success(input)
-            rescue StandardError
-                Failure('Having trouble accessing the database')
-            end
+      def validate_result_target(input)
+        if input[:watched_list].include? input[:requested]
+          Success(input)
+        else
+          Failure('Please first request this target  to be added to your list')
         end
+      end
+
+      def reify_result_target(result_target_json)
+        Representer::TargetsList.new(OpenStruct.new)
+          .from_json(result_target_json)
+          .then { |result_target_json| Success(result_target_json) }
+      rescue StandardError
+        Failure('Error in our target results -- please try again')
+      end
     end
+  end
 end

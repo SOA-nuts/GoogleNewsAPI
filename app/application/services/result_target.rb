@@ -31,7 +31,7 @@ module PortfolioAdvisor
       end
 
       def reify_target(result_target_json)
-        Representer::Target.new(OpenStruct.new)
+        PortfolioAdvisor::Representer::Target.new(OpenStruct.new)
           .from_json(result_target_json)
           .then { |result_target_json| Success(result_target_json) }
       rescue StandardError

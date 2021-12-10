@@ -26,20 +26,21 @@ module PortfolioAdvisor
       def request_target(input)
         result = Gateway::Api.new(PortfolioAdvisor::App.config)
           .add_target(input[:company_name])
-
         result.success? ? Success(result.payload) : Failure(result.message)
-      rescue StandardError
+      rescue StandardError => e
+        puts e.inspect + '\n' + e.backtrace
         Failure('Cannot add target right now; please try again later')
       end
 
       def reify_target(target_json)
-        puts Representer::Target.new(target_json)
         Representer::Target.new(OpenStruct.new)
           .from_json(target_json)
           .then { |target| 
             Success(target) }
-      rescue StandardError
-        Failure('Error in add target -- please try again')
+        rescue StandardError => e
+          puts e.inspect  
+          puts e.backtrace
+          Failure('Error in add target -- please try again')
       end
     end
   end

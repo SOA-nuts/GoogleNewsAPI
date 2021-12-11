@@ -1,4 +1,4 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 require_relative 'list_request'
 require 'http'
@@ -25,7 +25,7 @@ module PortfolioAdvisor
       end
 
       # Gets company's history and results
-      
+
       def result_history(req)
         @request.get_result_history(req)
       end
@@ -33,12 +33,12 @@ module PortfolioAdvisor
       def result_target(req)
         @request.get_result_target(req)
       end
-      
+
       # HTTP request transmitter
       class Request
         def initialize(config)
           @api_host = config.API_HOST
-          @api_root = config.API_HOST + '/api/v1'
+          @api_root = "#{config.API_HOST}/api/v1"
         end
 
         def get_root # rubocop:disable Naming/AccessorMethodName
@@ -55,18 +55,18 @@ module PortfolioAdvisor
         end
 
         def get_result_history(company_name)
-          call_api('get', ['history',company_name])
+          call_api('get', ['history', company_name])
         end
+
         def get_result_target(company_name)
-            call_api('get', ['target', company_name])
+          call_api('get', ['target', company_name])
         end
-  
 
         private
 
         def params_str(params)
           params.map { |key, value| "#{key}=#{value}" }.join('&')
-            .then { |str| str ? '?' + str : '' }
+            .then { |str| str ? "?#{str}" : '' }
         end
 
         def call_api(method, resources = [], params = {})
@@ -83,7 +83,7 @@ module PortfolioAdvisor
       class Response < SimpleDelegator
         NotFound = Class.new(StandardError)
 
-        SUCCESS_CODES = (200..299).freeze
+        SUCCESS_CODES = (200..299)
 
         def success?
           code.between?(SUCCESS_CODES.first, SUCCESS_CODES.last)

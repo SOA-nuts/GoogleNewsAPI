@@ -11,7 +11,7 @@ module PortfolioAdvisor
       step :validate_target
       step :retrieve_target
       step :reify_target
-     
+
       private
 
       def validate_target(input)

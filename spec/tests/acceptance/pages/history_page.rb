@@ -4,8 +4,7 @@
 class HistoryPage
   include PageObject
 
-  page_url PortfolioAdvisor::App.config.APP_HOST +
-           '/history/<%=params[:target_name]%>' 
+  page_url "#{PortfolioAdvisor::App.config.API_HOST}/history/<%=params[:target_name]%>"
 
   div(:warning_message, id: 'flash_bar_danger')
   div(:success_message, id: 'flash_bar_success')

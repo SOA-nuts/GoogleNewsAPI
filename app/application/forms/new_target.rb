@@ -8,15 +8,13 @@ COMPANY_LIST = YAML.safe_load(File.read(COMPANY_YAML))
 
 module PortfolioAdvisor
   module Forms
-    class NewTarget < Dry::Validation::Contract       
+    class NewTarget < Dry::Validation::Contract
       params do
         required(:company_name).filled(:string)
       end
 
       rule(:company_name) do
-        if COMPANY_LIST[0][value.downcase].nil?
-          key.failure('is a not define company.')
-        end
+        key.failure('is a not define company.') if COMPANY_LIST[0][value.downcase].nil?
       end
     end
   end

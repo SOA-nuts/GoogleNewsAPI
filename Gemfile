@@ -34,9 +34,9 @@ group :test do
   gem 'webmock', '~> 3.0'
 
   gem 'headless', '~> 2.3'
+  gem 'page-object'
   gem 'watir', '~> 7.0'
   gem 'webdrivers', '~> 5.0'
-  gem 'page-object'
 end
 
 group :development do

@@ -4,7 +4,7 @@
 class HomePage
   include PageObject
 
-  page_url PortfolioAdvisor::App.config.APP_HOST
+  page_url PortfolioAdvisor::App.config.API_HOST
 
   div(:warning_message, id: 'flash_bar_danger')
   div(:success_message, id: 'flash_bar_success')
@@ -17,14 +17,13 @@ class HomePage
   indexed_property(
     :targets,
     [
-      [:span,  :company_name,        { id: 'target[%s].company_name' }],
-      [:td,    :date_updated,     { id: 'target[%s].date_updated' }]
+      [:span,  :company_name, { id: 'target[%s].company_name' }],
+      [:td,    :date_updated, { id: 'target[%s].date_updated' }]
     ]
   )
 
   def add_new_target(company_name)
     self.company_name_input = company_name
-    self.add_button
+    add_button
   end
-  
 end

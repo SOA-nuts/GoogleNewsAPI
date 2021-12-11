@@ -10,7 +10,7 @@ module PortfolioAdvisor
   class App < Roda
 
     plugin :halt
-    plugin :flash
+    plugin :caching
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     plugin :render, engine: 'slim', views: 'app/presentation/views_html'
     plugin :public, root: 'app/presentation/public'
@@ -84,6 +84,7 @@ module PortfolioAdvisor
             end
 
             result = result.value!
+            response.expires 60, public: true
             view 'target', locals: { target: result }
           end
         end

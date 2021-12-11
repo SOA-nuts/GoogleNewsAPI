@@ -8,15 +8,13 @@ require 'slim/include'
 module PortfolioAdvisor
   # Web App
   class App < Roda
-
     plugin :halt
     plugin :flash
+    plugin :caching
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
     plugin :render, engine: 'slim', views: 'app/presentation/views_html'
-    plugin :public, root: 'app/presentation/public'
     plugin :assets, path: 'app/presentation/assets',
                     css: 'style.css', js: 'table_row_click.js'
-    
 
     use Rack::MethodOverride # for other HTTP verbs (with plugin all_verbs)
 
@@ -34,10 +32,8 @@ module PortfolioAdvisor
           flash[:error] = result.failure
           viewable_targets = []
         else
-          targets = result.value!
-          if targets.none?
-            flash.now[:notice] = 'Add a company to get started'
-          end
+          targets = result.value!.targets
+          flash.now[:notice] = 'Add a company to get started' if targets.none?
 
           session[:watching] = targets.map(&:company_name)
           viewable_targets = Views::TargetsList.new(targets)
@@ -52,39 +48,37 @@ module PortfolioAdvisor
           routing.post do
             target_request = Forms::NewTarget.new.call(routing.params)
             target_made = Service::AddTarget.new.call(target_request)
-
             if target_made.failure?
               flash[:error] = target_made.failure
               routing.redirect '/'
             end
 
             target = target_made.value!
+
             session[:watching].insert(0, target.company_name).uniq!
-            #flash[:notice] = 'target added to your list'
             # Redirect viewer target page
             routing.redirect "target/#{target.company_name}"
-
           end
         end
 
         routing.on String do |company|
           # GET /target/company
           routing.get do
-
             session[:watching] ||= []
 
             result = Service::ResultTarget.new.call(
               watched_list: session[:watching],
               requested: company
             )
-            
+
             if result.failure?
               flash[:error] = result.failure
               routing.redirect '/'
             end
 
             result = result.value!
-            view 'target', locals: { target: result[:target] }
+            response.expires 60, public: true
+            view 'target', locals: { target: result }
           end
         end
       end
@@ -107,14 +101,14 @@ module PortfolioAdvisor
               watched_list: session[:watching],
               requested: company
             )
-            
+
             if result.failure?
               flash[:error] = result.failure
               routing.redirect '/'
             end
 
             result = result.value!
-            viewable_histories = Views::HistoriesList.new(result[:history], company)
+            viewable_histories = Views::HistoriesList.new(result[:histories], company)
             view 'history', locals: { histories: viewable_histories }
           end
         end

@@ -3,30 +3,46 @@
 require 'dry/transaction'
 
 module PortfolioAdvisor
-    module Service
-        # Analyzes results to a history
-        class ResultHistory
-            include Dry::Transaction
+  module Service
+    # Analyzes history results of a target
+    class ResultHistory
+      include Dry::Transaction
 
-            step :ensure_watched_history
-            step :retrieve_remote_history
+      step :validate_history
+      step :get_history
+      step :reify_history
 
-            private
+      private
 
-            def ensure_watched_history(input)
-                if input[:watched_list].include? input[:requested]
-                    Success(input)
-                else
-                    Failure('Please first request this target to be added to your list')
-                end
-            end
-
-            def retrieve_remote_history(input)
-                input[:history] = Repository::Histories.find_company(input[:requested])
-                input[:history] ? Success(input) : Failure('History not found')
-            rescue StandardError
-                Failure('Having trouble accessing the database')
-            end
+      def validate_history(input)
+        if input[:watched_list].include? input[:requested]
+          Success(input)
+        else
+          Failure('Please first request this history to be added to your list')
         end
+      end
+
+      def get_history(input)
+        result = Gateway::Api.new(PortfolioAdvisor::App.config)
+          .result_history(input[:requested])
+          .then do |result|
+            result.success? ? Success(result.payload) : Failure(result.message)
+          end
+      rescue StandardError => e
+        puts e.inspect
+        puts e.backtrace
+        Failure('Error in our history results -- please try again')
+      end
+
+      def reify_history(result_history_json)
+        Representer::HistoriesList.new(OpenStruct.new)
+          .from_json(result_history_json)
+          .then { |result_history| Success(result_history) }
+      rescue StandardError => e
+        puts e.inspect
+        puts e.backtrace
+        Failure('Error in our history results -- please try again')
+      end
     end
+  end
 end

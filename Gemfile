@@ -21,27 +21,9 @@ gem 'dry-monads', '~> 1.4'
 gem 'dry-transaction', '~> 0.13'
 gem 'dry-validation', '~> 1.7'
 
-# DOMAIN LAYER
-# Validation
-gem 'dry-struct', '~> 1.4'
-gem 'dry-types', '~> 1.5'
-
 # INFRASTRUCTURE LAYER
 # Networking
 gem 'http', '~> 5.0'
-
-# Database
-gem 'hirb', '~> 0'
-gem 'hirb-unicode', '~> 0'
-gem 'sequel', '~> 5.49'
-
-group :development, :test do
-  gem 'sqlite3', '~> 1.4'
-end
-
-group :production do
-  gem 'pg', '~> 1.2'
-end
 
 # Testing
 group :test do
@@ -52,9 +34,9 @@ group :test do
   gem 'webmock', '~> 3.0'
 
   gem 'headless', '~> 2.3'
+  gem 'page-object'
   gem 'watir', '~> 7.0'
   gem 'webdrivers', '~> 5.0'
-  gem 'page-object'
 end
 
 group :development do
@@ -71,12 +53,5 @@ group :development do
   gem 'rubocop'
 end
 
-# Web Scraper
-gem 'nokogiri'
-gem 'open-uri'
-
 # date
 gem 'date', '>= 3.2.1'
-
-# text mining
-gem 'textmood'

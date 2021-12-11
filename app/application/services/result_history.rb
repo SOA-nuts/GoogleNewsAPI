@@ -29,7 +29,7 @@ module PortfolioAdvisor
             result.success? ? Success(result.payload) : Failure(result.message)
           end
       rescue StandardError => e
-        puts e.inspect  
+        puts e.inspect
         puts e.backtrace
         Failure('Error in our history results -- please try again')
       end
@@ -39,7 +39,7 @@ module PortfolioAdvisor
           .from_json(result_history_json)
           .then { |result_history| Success(result_history) }
       rescue StandardError => e
-        puts e.inspect  
+        puts e.inspect
         puts e.backtrace
         Failure('Error in our history results -- please try again')
       end

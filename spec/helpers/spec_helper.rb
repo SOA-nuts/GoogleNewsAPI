@@ -22,5 +22,5 @@ URL = 'https://www.wired.com/story/macbook-pro-ports-magsafe-design/'
 
 # Helper method for acceptance tests
 def homepage
-  PortfolioAdvisor::App.config.APP_HOST
+  PortfolioAdvisor::App.config.API_HOST
 end

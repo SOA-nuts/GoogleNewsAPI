@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../helpers/spec_helper.rb'
+require_relative '../../helpers/spec_helper'
 
 describe 'Unit test of Portfolio Advisor API gateway' do
   it 'must report alive status' do
@@ -31,30 +31,29 @@ describe 'Unit test of Portfolio Advisor API gateway' do
     data = res.parse
     _(data.keys).must_include 'targets'
     _(data['targets'].count).must_equal 1
-    puts data['targets'].first.keys.count
     _(data['targets'].first.keys.count).must_be :>=, 2
   end
 
-  #it 'must return a project appraisal' do
-    # GIVEN a project is in the database
-    #CodePraise::Gateway::Api.new(CodePraise::App.config)
-      #.add_project(USERNAME, PROJECT_NAME)
+  # it 'must return a project appraisal' do
+  # GIVEN a project is in the database
+  # CodePraise::Gateway::Api.new(CodePraise::App.config)
+  # .add_project(USERNAME, PROJECT_NAME)
 
-    # WHEN we request an appraisal
-    #req = OpenStruct.new(
-     # project_fullname: USERNAME + '/' + PROJECT_NAME,
-      #owner_name: USERNAME,
-      #project_name: PROJECT_NAME,
-      #foldername: ''
-    #)
+  # WHEN we request an appraisal
+  # req = OpenStruct.new(
+  # project_fullname: USERNAME + '/' + PROJECT_NAME,
+  # owner_name: USERNAME,
+  # project_name: PROJECT_NAME,
+  # foldername: ''
+  # )
 
-   # res = CodePraise::Gateway::Api.new(CodePraise::App.config)
-     # .appraise(req)
+  # res = CodePraise::Gateway::Api.new(CodePraise::App.config)
+  # .appraise(req)
 
-    # THEN we should see a single project in the list
-   # _(res.success?).must_equal true
-    #data = res.parse
-    #_(data.keys).must_include 'project'
-    #_(data.keys).must_include 'folder'
-  #end
+  # THEN we should see a single project in the list
+  # _(res.success?).must_equal true
+  # data = res.parse
+  # _(data.keys).must_include 'project'
+  # _(data.keys).must_include 'folder'
+  # end
 end

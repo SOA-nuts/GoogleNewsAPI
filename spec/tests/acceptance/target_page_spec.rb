@@ -7,7 +7,7 @@ require_relative 'pages/home_page'
 describe 'Targetpage Acceptance Tests' do
   include PageObject::PageFactory
   before do
-    DatabaseHelper.wipe_database
+    # DatabaseHelper.wipe_database
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--headless')
     @browser = Watir::Browser.new :chrome, options: options
@@ -25,8 +25,7 @@ describe 'Targetpage Acceptance Tests' do
     end
 
     # WHEN: they add a target and submit
-    visit(TargetPage, using_params: {target_name: TOPIC}) do |page|
-
+    visit(TargetPage, using_params: { target_name: TOPIC }) do |page|
       # THEN: they should see the target details
       _(page.target_title).must_equal TOPIC
       _(page.articles_table_element.present?).must_equal true

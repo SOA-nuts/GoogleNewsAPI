@@ -10,6 +10,7 @@ module PortfolioAdvisor
 
       step :get_target_list
       step :reify_target_list
+
       private
 
       def get_target_list(targets_list)

@@ -2,7 +2,6 @@
 
 require 'figaro'
 require 'roda'
-require 'sequel'
 require 'delegate' # needed until Rack 2.3 fixes delegateclass bug
 
 module PortfolioAdvisor

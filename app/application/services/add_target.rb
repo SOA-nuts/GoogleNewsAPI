@@ -24,24 +24,37 @@ module PortfolioAdvisor
       end
 
       def request_target(input)
-        result = Gateway::Api.new(PortfolioAdvisor::App.config)
-          .add_target(input[:company_name])
-        result.success? ? Success(result.payload) : Failure(result.message)
+        # result = Gateway::Api.new(PortfolioAdvisor::App.config)
+        #   .add_target(input[:company_name])
+        # result.success? ? Success(result.payload) : Failure(result.message)
+        input[:response] = Gateway::Api.new(PortfolioAdvisor::App.config)
+            .add_target(input[:company_name])
+        input[:response].success? ? Success(input) : Failure(input[:response].message)
+
       rescue StandardError => e
         puts "#{e.inspect}\\n#{e.backtrace}"
         Failure('Cannot add target right now; please try again later')
       end
 
       def reify_target(target_json)
-        Representer::Target.new(OpenStruct.new)
-          .from_json(target_json)
-          .then do |target|
-          Success(target)
+      #   Representer::Target.new(OpenStruct.new)
+      #     .from_json(target_json)
+      #     .then do |target|
+      #     Success(target)
+      #   end
+      # rescue StandardError => e
+      #   puts e.inspect
+      #   puts e.backtrace
+      #   Failure('Error in add target -- please try again')
+        unless input[:response].processing?
+          Representer::Target.new(OpenStruct.new)
+            .from_json(input[:response].payload)
+            .then { input[:added] = _1 }
         end
-      rescue StandardError => e
-        puts e.inspect
-        puts e.backtrace
-        Failure('Error in add target -- please try again')
+
+        uccess(input)
+      rescue StandardError
+        Failure('Error on add target -- please try again')
       end
     end
   end

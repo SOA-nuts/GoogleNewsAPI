@@ -53,11 +53,23 @@ module PortfolioAdvisor
               routing.redirect '/'
             end
 
-            target = target_made.value!
+            #target = target_made.value!
+            target = OpenStruct.new(result.value!)
 
-            session[:watching].insert(0, target.company_name).uniq!
-            # Redirect viewer target page
-            routing.redirect "target/#{target.company_name}"
+            if target.response.processing?
+              flash.now[:notice] = 'The target is being added'
+            else
+              target_added = target.added
+              response.expires(60, public: true) if App.environment == :production
+
+              processing = Views::AddProcessing.new(
+                App.config, target.response
+              )
+
+              session[:watching].insert(0, target_added.company_name).uniq!
+              # Redirect viewer target page
+              routing.redirect "target/#{target_added.company_name}"
+            end
           end
         end
 

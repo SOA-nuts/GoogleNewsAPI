@@ -15,8 +15,20 @@ module Views
       @history.updated_at
     end
 
-    def score
-      @history.score
+    def market_price
+      @history.market_price
+    end
+
+    def long_advice_price
+      @history.long_advice_price
+    end
+
+    def mid_advice_price
+      @history.mid_advice_price
+    end
+
+    def short_advice_price
+      @history.short_advice_price
     end
   end
 end

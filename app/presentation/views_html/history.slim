@@ -10,12 +10,17 @@
         thead
           tr
             th Date
-            th Score
+            th Stock Price
+            th Long Term Advice
+            th Mid Term Advice
+            th Short Term Advice
         tbody
           - histories.each do |history|
             tr id="history_row"
               td = history.updated_at
-              td = history.score
+              td = history.market_price
+              td = history.long_advice_price
+              td = history.mid_advice_price
+              td = history.short_advice_price
 
     canvas class="LineChart" height="50" width="100" 
-    / div class="record" data-score = "[7,8,8,9,9,9,10,11,14,14,15]"

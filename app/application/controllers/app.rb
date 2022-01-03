@@ -54,10 +54,10 @@ module PortfolioAdvisor
             end
 
             #target = target_made.value!
-            target = OpenStruct.new(result.value!)
+            target = OpenStruct.new(target_made.value!)
 
             if target.response.processing?
-              flash.now[:notice] = 'The target is being added'
+              flash.now[:notice] = 'The target is being adding'
             else
               target_added = target.added
               response.expires(60, public: true) if App.environment == :production

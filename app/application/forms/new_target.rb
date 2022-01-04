@@ -14,7 +14,7 @@ module PortfolioAdvisor
       end
 
       rule(:company_name) do
-        key.failure('is a not define company.') if COMPANY_LIST[0][value.downcase].nil?
+        key.failure("Please search a legal company.") if COMPANY_LIST[0][value.downcase].nil?
       end
     end
   end

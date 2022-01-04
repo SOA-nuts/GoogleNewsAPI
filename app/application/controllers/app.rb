@@ -57,7 +57,8 @@ module PortfolioAdvisor
             target = OpenStruct.new(target_made.value!)
 
             if target.response.processing?
-              flash.now[:notice] = 'The target is being adding'
+              flash[:notice] = 'The target is being adding,please access it later'
+              #routing.redirect '/'
             else
               target_added = target.added
               response.expires(60, public: true) if App.environment == :production

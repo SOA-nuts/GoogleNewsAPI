@@ -1,19 +1,34 @@
 .container
   .row
     h2 id='target_name' class="h2-red"
-      a.text-underline-hover href="/history/#{target.company_name}"
+      a.text-underline-hover href=target.history_link
         = target.company_name
 
+  .row
+    h5 Advice
   .container
+    table class="table table-hover" id="advice_table"
+        thead
+          tr
+            th Long Term
+            th Mid Term
+            th Short Term
+        tbody
+            tr id='advice_row' class="advice_table_row"
+              td = target.long_term_advice
+              td = target.mid_term_advice
+              td = target.short_term_advice
 
-
+  .row
+    h5 Articles
+  .container
     table class="table table-hover" id="articles_table"
         thead
           tr
-            th Article
+            th Title
             th Publish Date
         tbody
-          - target.articles.each do |article, index|
+          - target.articles.each do |article|
             tr id='article_row' class="article_table_row" data-href=article.url
               td = article.title
               td class="td-date" = article.published_at

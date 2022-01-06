@@ -18,7 +18,7 @@ module PortfolioAdvisor
         if input[:watched_list].include? input[:requested]
           Success(input)
         else
-          Failure('Please first request this history to be added to your list')
+          Failure('Please first request this company to be added to your list')
         end
       end
 

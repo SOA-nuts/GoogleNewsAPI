@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'article'
+
 module Views
   # View for a target entities
   class Target
@@ -32,20 +34,20 @@ module Views
       @target.market_price
     end
 
-    def long_advice_price
-      @target.long_advice_price
+    def long_term_advice
+      @target.short_term_advice
     end
 
-    def mid_advice_price
-      @target.mid_advice_price
+    def mid_term_advice
+      @target.mid_term_advice
     end
 
-    def short_advice_price
-      @target.short_advice_price
+    def short_term_advice
+      @target.short_term_advice
     end
 
-    def list_of_articles
-      @target.articles
+    def articles
+      @target.articles.map.with_index { |article, index| Article.new(article, index) }
     end
   end
 end

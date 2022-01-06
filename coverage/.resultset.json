@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/init.rb": {
         "lines": [
           null,
           null,
@@ -10,14 +10,14 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/config/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/config/init.rb": {
         "lines": [
           null,
           null,
           1
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/config/environment.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/config/environment.rb": {
         "lines": [
           null,
           null,
@@ -48,16 +48,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/init.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          3,
-          null
-        ]
-      },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/init.rb": {
         "lines": [
           null,
           null,
@@ -66,7 +57,16 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/list_request.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/init.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          3,
+          null
+        ]
+      },
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/list_request.rb": {
         "lines": [
           null,
           null,
@@ -96,7 +96,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/portfolio_advisor_api.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/infrastructure/portfolio_advisor_api.rb": {
         "lines": [
           null,
           null,
@@ -108,8 +108,8 @@
           null,
           1,
           1,
-          8,
-          8,
+          9,
+          9,
           null,
           null,
           1,
@@ -131,14 +131,14 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           null,
           1,
           1,
-          8,
-          8,
+          9,
+          9,
           null,
           null,
           1,
@@ -157,28 +157,28 @@
           1,
           0,
           null,
+          null,
           1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          12,
+          9,
+          null,
+          null,
+          1,
+          9,
+          9,
+          9,
+          9,
+          null,
           0,
           null,
           null,
           null,
-          1,
-          null,
-          1,
-          11,
-          8,
-          null,
-          null,
-          1,
-          8,
-          8,
-          8,
-          8,
-          null,
-          0,
-          null,
-          null,
-          null,
           null,
           1,
           1,
@@ -186,15 +186,15 @@
           1,
           null,
           1,
-          6,
+          7,
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           1,
-          3,
+          4,
           null,
           null,
           null,
@@ -202,7 +202,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/init.rb": {
         "lines": [
           null,
           null,
@@ -212,7 +212,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/init.rb": {
         "lines": [
           null,
           null,
@@ -221,7 +221,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/histories_list.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/histories_list.rb": {
         "lines": [
           null,
           null,
@@ -248,7 +248,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/history.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/history.rb": {
         "lines": [
           null,
           null,
@@ -256,33 +256,6 @@
           null,
           1,
           1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/target.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          0,
           0,
           null,
           null,
@@ -313,7 +286,62 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/targets_list.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/target.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/presentation/view_objects/targets_list.rb": {
         "lines": [
           null,
           null,
@@ -337,7 +365,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/init.rb": {
         "lines": [
           null,
           null,
@@ -347,7 +375,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/forms/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/forms/init.rb": {
         "lines": [
           null,
           null,
@@ -356,7 +384,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/forms/new_target.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/forms/new_target.rb": {
         "lines": [
           null,
           null,
@@ -375,15 +403,13 @@
           null,
           1,
           1,
-          0,
-          null,
           null,
           null,
           null,
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/init.rb": {
         "lines": [
           null,
           null,
@@ -392,7 +418,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/article_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/article_representer.rb": {
         "lines": [
           null,
           null,
@@ -413,7 +439,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/histories_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/histories_representer.rb": {
         "lines": [
           null,
           null,
@@ -436,7 +462,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/openstruct_with_links.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/openstruct_with_links.rb": {
         "lines": [
           null,
           null,
@@ -450,7 +476,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/history_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/history_representer.rb": {
         "lines": [
           null,
           null,
@@ -468,12 +494,15 @@
           null,
           1,
           1,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/http_response_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/http_response_representer.rb": {
         "lines": [
           null,
           null,
@@ -516,7 +545,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/target_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/target_representer.rb": {
         "lines": [
           null,
           null,
@@ -538,6 +567,9 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
           null,
           1,
           0,
@@ -551,7 +583,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/targets_representer.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/representers/targets_representer.rb": {
         "lines": [
           null,
           null,
@@ -574,7 +606,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/init.rb": {
         "lines": [
           null,
           null,
@@ -583,7 +615,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/add_target.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/add_target.rb": {
         "lines": [
           null,
           null,
@@ -624,6 +656,7 @@
           null,
           null,
           1,
+          null,
           null,
           0,
           0,
@@ -634,7 +667,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/list_targets.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/list_targets.rb": {
         "lines": [
           null,
           null,
@@ -648,6 +681,7 @@
           null,
           1,
           1,
+          null,
           1,
           null,
           1,
@@ -672,7 +706,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/result_history.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/result_history.rb": {
         "lines": [
           null,
           null,
@@ -724,7 +758,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/result_target.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/services/result_target.rb": {
         "lines": [
           null,
           null,
@@ -743,17 +777,17 @@
           1,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           0,
           null,
           null,
           null,
           1,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
           0,
           null,
@@ -770,7 +804,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/controllers/init.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/controllers/init.rb": {
         "lines": [
           null,
           null,
@@ -779,7 +813,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/controllers/app.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/app/application/controllers/app.rb": {
         "lines": [
           null,
           null,
@@ -791,14 +825,12 @@
           1,
           null,
           1,
-          null,
           1,
           1,
           1,
           1,
           1,
           1,
-          null,
           null,
           null,
           1,
@@ -819,8 +851,6 @@
           null,
           0,
           0,
-          0,
-          null,
           null,
           0,
           0,
@@ -840,7 +870,6 @@
           0,
           null,
           null,
-          null,
           0,
           null,
           0,
@@ -849,11 +878,9 @@
           null,
           null,
           null,
-          null,
           0,
           null,
           0,
-          null,
           0,
           null,
           0,
@@ -908,7 +935,7 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/spec/tests/integration/list_target_spec.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/spec/tests/integration/services/list_target_spec.rb": {
         "lines": [
           null,
           null,
@@ -944,7 +971,34 @@
           null
         ]
       },
-      "/mnt/d/course/SOA/PortfolioAdvisor/app-PortfolioAdvisor/spec/tests/unit/portfolioadvisor_api_spec.rb": {
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/spec/tests/integration/services/result_target_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/mnt/d/SOA/PortfolioAdvisor/app-PortfolioAdvisor/spec/tests/unit/portfolioadvisor_api_spec.rb": {
         "lines": [
           null,
           null,
@@ -1008,6 +1062,6 @@
         ]
       }
     },
-    "timestamp": 1639217854
+    "timestamp": 1640608690
   }
 }

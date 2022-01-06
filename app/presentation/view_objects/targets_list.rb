@@ -6,7 +6,7 @@ module Views
   # View for a list of target entities
   class TargetsList
     def initialize(targets)
-      @targets = targets.map.with_index { |targ, i| Target.new(targ, i) }
+      @targets = targets.map.with_index { |target, index| Target.new(target, index) }
     end
 
     def each(&block)

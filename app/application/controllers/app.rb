@@ -90,8 +90,9 @@ module PortfolioAdvisor
             end
 
             result = result.value!
+            viewable_target = Views::Target.new(result)
             response.expires 60, public: true
-            view 'target', locals: { target: result }
+            view 'target', locals: { target: viewable_target }
           end
         end
       end

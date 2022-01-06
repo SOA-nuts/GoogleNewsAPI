@@ -18,7 +18,7 @@ class HomePage
     :targets,
     [
       [:span,  :company_name, { id: 'target[%s].company_name' }],
-      [:td,    :date_updated, { id: 'target[%s].date_updated' }]
+      [:td,    :updated_at, { id: 'target[%s].updated_at' }]
     ]
   )
 

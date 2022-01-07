@@ -15,7 +15,7 @@ module Views
     end
 
     def history_link
-      "history/#{company_name}"
+      "/history/#{company_name}"
     end
 
     def company_name

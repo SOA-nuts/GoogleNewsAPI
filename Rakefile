@@ -36,11 +36,11 @@ end
 
 namespace :run do
   task :dev do
-    sh 'rerun -c "rackup -p 9292"'
+    sh 'rerun -c "bundle exec rackup -p 9292"'
   end
 
   task :test do
-    sh 'RACK_ENV=test rackup -p 9000'
+    sh 'RACK_ENV=test bundle exec rackup -p 9000'
   end
 end
 

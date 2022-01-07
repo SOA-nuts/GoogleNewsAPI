@@ -16,7 +16,10 @@ class HistoryPage
     :historys,
     [
       [:td, :updated_at, { id: 'history.updated_at' }],
-      [:td, :score, { id: 'history.score' }]
+      [:td, :market_price, { id: 'history.market_price' }],
+      [:td, :long_advice_price, { id: 'history.long_advice_price' }],
+      [:td, :mid_advice_price, { id: 'history.mid_advice_price' }],
+      [:td, :short_advice_price, { id: 'history.short_advice_price' }]
     ]
   )
 

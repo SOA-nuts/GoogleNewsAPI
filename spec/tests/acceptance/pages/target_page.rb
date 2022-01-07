@@ -10,13 +10,13 @@ class TargetPage
   div(:success_message, id: 'flash_bar_success')
 
   h2(:target_title, id: 'target_name')
-  table(:articles_table, id: 'score_table')
+  table(:articles_table, id: 'articles_table')
 
   indexed_property(
     :articles,
     [
       [:td, :title, { id: 'article.title' }],
-      [:td, :score, { id: 'article.score' }]
+      [:td, :updated_at, { id: 'article.updated_at' }]
     ]
   )
 

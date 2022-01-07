@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'article'
+
 module Views
   # View for a target entities
   class Target
@@ -13,7 +15,7 @@ module Views
     end
 
     def history_link
-      "history/#{company_name}"
+      "/history/#{company_name}"
     end
 
     def company_name
@@ -24,12 +26,28 @@ module Views
       "target[#{@index}]"
     end
 
-    def date_updated
+    def updated_at
       @target.updated_at
     end
 
-    def list_of_articles
-      @target.articles
+    def market_price
+      @target.market_price
+    end
+
+    def long_term_advice
+      @target.short_term_advice
+    end
+
+    def mid_term_advice
+      @target.mid_term_advice
+    end
+
+    def short_term_advice
+      @target.short_term_advice
+    end
+
+    def articles
+      @target.articles.map.with_index { |article, index| Article.new(article, index) }
     end
   end
 end

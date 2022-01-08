@@ -14,6 +14,18 @@
           type='submit' id='company_form_submit' class='submit' 
           value='submit' class="btn btn-success" 
         } Show Target
+
+    .row.vertical-align.query-bar
+      .col-md-2.col-sm-3
+        .text-right Most popular:
+      
+      - ranks.entity.each do |target|
+          .col-md-1.col-sm-2
+            a.text-underline-hover class="text-danger" href=ranks.target_link(target)
+              = target
+
+      .col-md-4.col-sm-3
+
     .row
       .col-md-12.blank-row
     - if targets.any?

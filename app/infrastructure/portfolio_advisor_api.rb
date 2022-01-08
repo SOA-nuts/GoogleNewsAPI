@@ -30,6 +30,10 @@ module PortfolioAdvisor
         @request.get_result_history(req)
       end
 
+      def result_rank
+        @request.get_result_rank
+      end
+
       def result_target(req)
         @request.get_result_target(req)
       end
@@ -56,6 +60,10 @@ module PortfolioAdvisor
 
         def get_result_history(company_name)
           call_api('get', ['history', company_name])
+        end
+
+        def get_result_rank
+          call_api('get', ['rank'])
         end
 
         def get_result_target(company_name)

@@ -26,8 +26,8 @@ module PortfolioAdvisor
       routing.root do
         # Get cookie viewer's previously seen targets
         session[:watching] ||= []
-        result = Service::ListTargets.new.call(session[:watching])
 
+        result = Service::ListTargets.new.call(session[:watching])
         if result.failure?
           flash[:error] = result.failure
           viewable_targets = []
@@ -39,7 +39,16 @@ module PortfolioAdvisor
           viewable_targets = Views::TargetsList.new(targets)
         end
 
-        view 'home', locals: { targets: viewable_targets }
+        ranks = Service::Ranks.new.call
+        if ranks.failure?
+          flash[:error] = ranks.failure
+          viewable_targets = []
+        else
+          ranks = ranks.value!
+          viewable_ranks = Views::Ranks.new(ranks)
+        end
+
+        view 'home', locals: { targets: viewable_targets, ranks: viewable_ranks}
       end
 
       routing.on 'target' do
@@ -67,7 +76,7 @@ module PortfolioAdvisor
                 App.config, target.response
               )
 
-              session[:watching].insert(0, target_added.company_name).uniq!
+              
               # Redirect viewer target page
               routing.redirect "target/#{target_added.company_name}"
             end
@@ -77,7 +86,7 @@ module PortfolioAdvisor
         routing.on String do |company|
           # GET /target/company
           routing.get do
-            session[:watching] ||= []
+            session[:watching].insert(0, company).uniq!
 
             result = Service::ResultTarget.new.call(
               watched_list: session[:watching],

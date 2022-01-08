@@ -4,8 +4,6 @@
       span.target.name
         = histories.company
   .container
-
-
     table class="table table-hover" id="history_table"
         thead
           tr
@@ -24,3 +22,10 @@
               td = history.short_advice_price
 
     canvas class="LineChart" height="50" width="100" 
+
+  .row
+  button{ 
+          class="btn btn-success" 
+        }
+    a.text-underline-hover class="text-white" href='/target/#{histories.company}'
+     = "Visit #{histories.company} today's related articles"

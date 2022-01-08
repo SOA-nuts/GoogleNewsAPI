@@ -1,9 +1,8 @@
 .container
   .row
-    h2 id='target_name' class="h2-red"
-      a.text-underline-hover href=target.history_link
+    h2 id='target_name'
+      span.target.name
         = target.company_name
-
   .row
     h5 Advice
   .container
@@ -32,3 +31,10 @@
             tr id='article_row' class="article_table_row" data-href=article.url
               td = article.title
               td class="td-date" = article.published_at
+  
+  .row
+  button{ 
+          class="btn btn-success" 
+        }
+    a.text-underline-hover class="text-white" href=target.history_link
+     = "Visit #{target.company_name} history line chart"

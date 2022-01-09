@@ -1,10 +1,11 @@
 .bottom{
-  margin-bottom: 50px;
+  margin-bottom: 50px !important;;
 }
 
 .advice_img{
+  border: none !important;
   border-radius: 4px;
-  width: 250px;
+  width: 250px !important;
 }
 
 .text-danger{
@@ -21,15 +22,17 @@ h1 {
   margin-left:12px;
 }
 .status {
+  border: none !important;
   border-radius: 4px;
-  width: 500px;
+  width: 500px !important;;
 }
 .status-home {
-  border-radius: 4px;
-  width: 600px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border: none !important;
+  border-radius: 4px !important;;
+  width: 600px !important;;
+  display: block !important;;
+  margin-left: auto !important;;
+  margin-right: auto !important;;
 }
 .text-underline-hover {
   text-decoration: none;

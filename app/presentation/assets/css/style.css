@@ -1,9 +1,18 @@
+.bottom{
+  margin-bottom: 50px;
+}
+
+.advice_img{
+  border-radius: 4px;
+  width: 250px;
+}
+
 .text-danger{
 font-size: 1.2em;
 }
 
 h5{
-  color:blueviolet;
+  color:rgb(62, 82, 196);
 }
 
 h1 {
@@ -11,11 +20,16 @@ h1 {
   margin-top:20px;
   margin-left:12px;
 }
-img {
-  border: 1px solid #ddd;
+.status {
   border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+  width: 500px;
+}
+.status-home {
+  border-radius: 4px;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .text-underline-hover {
   text-decoration: none;

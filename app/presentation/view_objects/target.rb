@@ -35,7 +35,7 @@ module Views
     end
 
     def long_term_advice
-      @target.short_term_advice
+      @target.long_term_advice
     end
 
     def mid_term_advice
@@ -44,6 +44,21 @@ module Views
 
     def short_term_advice
       @target.short_term_advice
+    end
+
+    def return_img(advice)
+      case advice
+      when "bad"
+        "https://i.imgur.com/m0ig4VF.png"
+      when "poor"
+        "https://i.imgur.com/OZdsudC.png"
+      when "fair"
+        "https://i.imgur.com/wOMl4ia.png"
+      when "good"
+        "https://i.imgur.com/rwp4Nit.png"
+      when "excellent"
+        "https://i.imgur.com/q1OTEZx.png"
+      end
     end
 
     def articles

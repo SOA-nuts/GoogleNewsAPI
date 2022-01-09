@@ -1,8 +1,11 @@
 .container
   .row
-    h2 id='target_name'
-      span.target.name
-        = target.company_name
+    .col-md-7
+      h2 id='target_name'
+        span.target.name
+          = target.company_name
+    .col-md-5
+      img [src="https://i.imgur.com/LTlP7TK.png" alt = "???" class = "status"]
   .row
     h5 Advice
   .container
@@ -14,9 +17,12 @@
             th Short Term
         tbody
             tr id='advice_row' class="advice_table_row"
-              td = target.long_term_advice
-              td = target.mid_term_advice
-              td = target.short_term_advice
+              td  
+                img[src= target.return_img(target.long_term_advice) alt = "???" class = "advice_img"]
+              td  
+                img[src= target.return_img(target.mid_term_advice) alt = "???" class = "advice_img"]
+              td 
+                img[src= target.return_img(target.short_term_advice) alt = "???" class = "advice_img"]
 
   .row
     h5 Articles
@@ -34,7 +40,7 @@
   
   .row
   button{ 
-          class="btn btn-success" 
+          class="btn btn-success bottom" 
         }
     a.text-underline-hover class="text-white" href=target.history_link
      = "Visit #{target.company_name} history line chart"

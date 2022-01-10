@@ -23,7 +23,7 @@ module PortfolioAdvisor
       end
 
       def get_history(input)
-        result = Gateway::Api.new(PortfolioAdvisor::App.config)
+        Gateway::Api.new(PortfolioAdvisor::App.config)
           .result_history(input[:requested])
           .then do |result|
             result.success? ? Success(result.payload) : Failure(result.message)

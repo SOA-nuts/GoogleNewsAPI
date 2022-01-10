@@ -13,8 +13,8 @@ module PortfolioAdvisor
 
       private
 
-      def get_rank(input)
-        result = Gateway::Api.new(PortfolioAdvisor::App.config)
+      def get_rank(_input)
+        Gateway::Api.new(PortfolioAdvisor::App.config)
           .result_rank
           .then do |result|
             result.success? ? Success(result.payload) : Failure(result.message)

@@ -10,22 +10,17 @@ module Views
       @index = index
     end
 
-    def published_at(&block)
-      @targets.each(&block)
-    end
-
     def title
-        @article.title
+      @article.title
     end
 
     def url
-        @article.url
-    end
-    
-    def published_at
-        datetime = DateTime.strptime(@article.published_at, '%Y-%m-%d')
-        datetime.strftime('%Y-%m-%d')
+      @article.url
     end
 
+    def published_at
+      datetime = DateTime.strptime(@article.published_at, '%Y-%m-%d')
+      datetime.strftime('%Y-%m-%d')
+    end
   end
 end

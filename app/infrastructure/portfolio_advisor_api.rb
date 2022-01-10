@@ -27,15 +27,15 @@ module PortfolioAdvisor
       # Gets company's history and results
 
       def result_history(req)
-        @request.get_result_history(req)
+        @request.result_history(req)
       end
 
       def result_rank
-        @request.get_result_rank
+        @request.result_rank
       end
 
       def result_target(req)
-        @request.get_result_target(req)
+        @request.result_target(req)
       end
 
       # HTTP request transmitter
@@ -58,15 +58,15 @@ module PortfolioAdvisor
           call_api('post', ['target', company_name])
         end
 
-        def get_result_history(company_name)
+        def result_history(company_name)
           call_api('get', ['history', company_name])
         end
 
-        def get_result_rank
+        def result_rank
           call_api('get', ['rank'])
         end
 
-        def get_result_target(company_name)
+        def result_target(company_name)
           call_api('get', ['target', company_name])
         end
 

@@ -48,7 +48,7 @@ module PortfolioAdvisor
           viewable_ranks = Views::Ranks.new(ranks)
         end
 
-        view 'home', locals: { targets: viewable_targets, ranks: viewable_ranks}
+        view 'home', locals: { targets: viewable_targets, ranks: viewable_ranks }
       end
 
       routing.on 'target' do
@@ -62,21 +62,20 @@ module PortfolioAdvisor
               routing.redirect '/'
             end
 
-            #target = target_made.value!
+            # target = target_made.value!
             target = OpenStruct.new(target_made.value!)
 
             if target.response.processing?
               flash[:notice] = 'The target is being adding,please access it later'
-              #routing.redirect '/'
+              # routing.redirect '/'
             else
               target_added = target.added
               response.expires(60, public: true) if App.environment == :production
 
-              processing = Views::AddProcessing.new(
-                App.config, target.response
-              )
+              # processing = Views::AddProcessing.new(
+              #   App.config, target.response
+              # )
 
-              
               # Redirect viewer target page
               routing.redirect "target/#{target_added.company_name}"
             end

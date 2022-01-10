@@ -47,18 +47,14 @@ module Views
     end
 
     def return_img(advice)
-      case advice
-      when "bad"
-        "https://i.imgur.com/m0ig4VF.png"
-      when "poor"
-        "https://i.imgur.com/OZdsudC.png"
-      when "fair"
-        "https://i.imgur.com/wOMl4ia.png"
-      when "good"
-        "https://i.imgur.com/rwp4Nit.png"
-      when "excellent"
-        "https://i.imgur.com/q1OTEZx.png"
-      end
+      url = {
+        'bad'       => 'https://i.imgur.com/m0ig4VF.png',
+        'poor'      => 'https://i.imgur.com/OZdsudC.png',
+        'fair'      => 'https://i.imgur.com/wOMl4ia.png',
+        'good'      => 'https://i.imgur.com/rwp4Nit.png',
+        'excellent' => 'https://i.imgur.com/q1OTEZx.png'
+      }
+      url[advice]
     end
 
     def articles
